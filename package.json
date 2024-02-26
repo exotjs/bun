@@ -1,0 +1,55 @@
+{
+  "name": "@exotjs/bun",
+  "version": "0.1.0",
+  "description": "Exot Inspector integration for Bun",
+  "author": "Daniel Regeci",
+  "license": "MIT",
+  "keywords": [
+    "exot",
+    "inspector",
+    "bun",
+    "websockets"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
+    "eslint": "eslint ./lib/**/*",
+    "format": "prettier --write './(lib|tests)/**/*'",
+    "test": "bun test",
+    "prepare": "husky"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "types": [
+        "./dist/types"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@exotjs/inspector": "0.x"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.7",
+    "@types/node": "^20.9.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "eslint": "^8.57.0",
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.1",
+    "tsx": "^4.0.0",
+    "typescript": "^5.2.2"
+  }
+}
