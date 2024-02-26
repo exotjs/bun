@@ -1,6 +1,6 @@
 import { Inspector } from '@exotjs/inspector';
 import { MemoryStore } from '@exotjs/inspector/store';
-import { webSocketServer } from '../lib/index.js';
+import { websocket } from '../lib/index.js';
 
 const inspector = new Inspector({
   store: new MemoryStore(),
@@ -21,7 +21,7 @@ Bun.serve({
 });
 
 Bun.serve({
-  ...webSocketServer({
+  ...websocket({
     inspector,
   }),
   port: 3003,

@@ -1,7 +1,7 @@
 {
   "name": "@exotjs/bun",
   "version": "0.1.0",
-  "description": "Exot Inspector integration for Bun",
+  "description": "Bun integration for Exot Inspector",
   "author": "Daniel Regeci",
   "license": "MIT",
   "keywords": [

@@ -3,6 +3,6 @@
 import type { ExotWebSocketServerOptions } from './types.js';
 import type { WebSocketServeOptions } from 'bun';
 import type { Session } from '@exotjs/inspector/session';
-export declare const webSocketServer: (options: ExotWebSocketServerOptions) => WebSocketServeOptions<{
+export declare const websocket: (options: ExotWebSocketServerOptions) => WebSocketServeOptions<{
     inspectorSession?: Session;
 }>;

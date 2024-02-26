@@ -1,5 +1,5 @@
 import { Inspector } from '@exotjs/inspector';
-export const webSocketServer = (options) => {
+export const websocket = (options) => {
     const { authorize, inspector, path = '/_inspector' } = options;
     if (!(inspector instanceof Inspector)) {
         throw new Error(`Invalid inspector instance.`);

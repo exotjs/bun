@@ -9,7 +9,7 @@ import {
 } from 'bun:test';
 import { Inspector } from '@exotjs/inspector';
 import { MemoryStore } from '@exotjs/inspector/store';
-import { webSocketServer } from '../lib/index.js';
+import { websocket } from '../lib/index.js';
 import type { Server } from 'bun';
 
 describe('webSocketServer()', () => {
@@ -28,19 +28,19 @@ describe('webSocketServer()', () => {
   });
 
   it('should throw an error if inspector is not provided', () => {
-    expect(() => webSocketServer({} as any)).toThrow();
+    expect(() => websocket({} as any)).toThrow();
   });
 
   it('should throw an error if inspector is invalid', () => {
     expect(() =>
-      webSocketServer({
+    websocket({
         inspector: {} as any,
       })
     ).toThrow();
   });
 
   it('should return Bun.serve options for websockets', () => {
-    const result = webSocketServer({
+    const result = websocket({
       inspector,
     });
     expect(result).toEqual({
@@ -64,7 +64,7 @@ describe('webSocketServer()', () => {
 
     beforeEach(() => {
       server = Bun.serve({
-        ...webSocketServer({
+        ...websocket({
           inspector,
         }),
       });
@@ -117,7 +117,7 @@ describe('webSocketServer()', () => {
 
     it('should fail if the authorization throws', async () => {
       server = Bun.serve({
-        ...webSocketServer({
+        ...websocket({
           authorize(req, server) {
             throw new Error('test');
           },
@@ -139,7 +139,7 @@ describe('webSocketServer()', () => {
 
     it('should connect and set user', async () => {
       server = Bun.serve({
-        ...webSocketServer({
+        ...websocket({
           authorize(req, server) {
             return 'test user';
           },
